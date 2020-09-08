@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :welcomes
-  root 'welcomes#index', as: 'home'
+  #resources :welcomes
+  root 'welcomes#new', as: 'home'
   
   resources :songs
   resources :users
