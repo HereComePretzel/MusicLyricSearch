@@ -2,6 +2,7 @@ class WelcomesController < ApplicationController
 
     def new
         @song = Song.new
+        @songs = Song.all 
     end 
 
     def create

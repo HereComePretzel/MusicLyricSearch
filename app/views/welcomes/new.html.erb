@@ -1,6 +1,8 @@
-<h1><%= "Search Bar Submit Button" %></h1>
+<h1><%= "Welcome Page" %></h1>
 
-<%= form_for @songs do |f| %>
-<%= f.text_field :name %>
-<%= f.submit %>
+<%= form_tag(songs_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag 'Search' %>
 <% end %>
+
+<p><%= "Description" %></p>

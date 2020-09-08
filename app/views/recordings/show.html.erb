@@ -1,2 +1,11 @@
 <h1><%= "hey there sexy" %></h1>
 
+<h4><%= @recording.song.name %></h4>
+<p><%= @recording.artist.name %></p>
+<p><%= @recording.reviews[0].rating %></p>
+<p><%= @recording.reviews[0].description %></p>
+<p><%= link_to "Buy/Stream this song", @recording.link, target: :_blank %></p>
+<h4><%= link_to "Create Review", home_path %></h4>
+
+<p><%= link_to "Search Again", home_path %></p>
+

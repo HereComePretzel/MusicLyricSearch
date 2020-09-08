@@ -1,10 +1,6 @@
 class RecordingsController < ApplicationController
 
-    def index
-        @recordings = Recording.all 
-    end 
-
     def show
-        @recording = Recording.find_by(params[:id])
+        @recording = Recording.find(params[:id])
     end 
 end
