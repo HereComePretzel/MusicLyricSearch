@@ -1,0 +1,12 @@
+<h1><%= "Welcome Page" %></h1>
+
+<%= form_tag(songs_path, method: :get) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Enter word/phrase" %>
+    <%= submit_tag 'Search' %>
+<% end %>
+
+<p><%= "Description" %></p>
+
+<p><%= link_to "Sign In", new_login_path %></p>
+<p><%= link_to "Sign Up", new_user_path %>
+<p><%= link_to "Sign Out", logout_path, method: :post %></p>

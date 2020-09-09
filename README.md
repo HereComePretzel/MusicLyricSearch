@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 # MusicLyricSearch
 Song Lyrics Search
-=======
+
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -94,19 +94,3 @@ Stretch Goals (after MVP):
 Get song info from an API
 Add CSS styling
 Etc.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 55ccfba85e56a2fa466020e0df1c238b23456682

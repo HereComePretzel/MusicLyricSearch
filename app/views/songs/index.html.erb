@@ -1,0 +1,7 @@
+<h1><%="Index Page"%></h1>
+
+<% @songs.each do |song|%>
+<%= link_to song.name, song_path(song) %>
+<% end %>
+
+<p><%= link_to "Search Bar", home_path %></p>
