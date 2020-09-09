@@ -1,11 +1,14 @@
-<h1><%= "hey there sexy" %></h1>
+<h1><%= "Recording Page" %></h1>
 
-<h4><%= @recording.song.name %></h4>
-<p><%= @recording.artist.name %></p>
-<p><%= @recording.reviews[0].rating %></p>
-<p><%= @recording.reviews[0].description %></p>
+<h4>Song Name: <%= @recording.song.name %></h4>
+<p>Artist Name: <%= @recording.artist.name %></p>
+<p>Rating: <%= @recording.reviews[0].rating %></p>
+<p>Reviews: <%= @recording.reviews[0].description %></p>
+<p> Lyrics: <%= @recording.song.lyric %></p>
 <p><%= link_to "Buy/Stream this song", @recording.link, target: :_blank %></p>
-<h4><%= link_to "Create Review", home_path %></h4>
+<h4>
+    <% if %>
+    <%= link_to "Create Review", new_user_path(@user) %></h4>
 
 
-<p><%= button_to "Go to Search Bar", home_path, method: :get %></p>
+<button style="text-decoration: none"><%= link_to "Go to Search Bar", home_path %></button>

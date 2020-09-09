@@ -13,5 +13,6 @@
     </ul>
 </h4>
 
-<p><%= button_to "Go to Search Bar", home_path, method: :get %></p>
+<p><%= link_to "Sign Out", logout_path, method: :post %></p>
+<button style="text-decoration: none"><%= link_to "Go to Search Bar", home_path %></button>
 
