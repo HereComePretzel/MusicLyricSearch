@@ -7,8 +7,14 @@
 <p> Lyrics: <%= @recording.song.lyric %></p>
 <p><%= link_to "Buy/Stream this song", @recording.link, target: :_blank %></p>
 <h4>
-    <% if %>
-    <%= link_to "Create Review", new_user_path(@user) %></h4>
+    <% if logged_in? %>
+     <li><%= link_to "Create Review", new_review_path %></li>
+        <li> <%= link_to "logout", logout_path, method: :delete %> </li>
+      <% else %>
+        <li><%= link_to "Sign-Up", new_user_path %></li>
+        <li ><%= link_to "Sign-In", new_login_path %></li>
+    <% end %>
+</h4>
 
 
 <button style="text-decoration: none"><%= link_to "Go to Search Bar", home_path %></button>

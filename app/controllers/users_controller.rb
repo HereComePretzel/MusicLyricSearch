@@ -19,6 +19,26 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.update(user_params)
+        redirect_to user_path(@user)
+    end
+
+    def destroy
+        @user.destroy
+        # puts "Bruh, for real? Are you sure?"
+        # case destroy
+        # when Yes
+        #     @user.destroy
+        # when No
+        #     redirect_to user_path(@user)
+        # end
+    end
+
     private
 
     def user_params

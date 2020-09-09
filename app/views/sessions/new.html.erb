@@ -2,11 +2,11 @@
 
 <ul>
 <% if flash[:error] %>
-<li style="color:red;"><%= flash[:error] %></li>
+<li style="color:red"><%= flash[:error] %></li>
 <% end %>
 </ul>
 
-<%= form_for @user, url: login_path, method: :post do |f| %>
+<%= form_for :session, url: login_path, method: :post do |f| %>
 <%= f.label :username %>
 <%= f.text_field :username %><br>
 <%= f.label :password %>

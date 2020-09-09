@@ -1,1 +1,7 @@
-<h1></h1>
+<h1>Index</h1>
+
+<% @reviews.each do |review| %>
+    <%= "#{review.rating}, #{review.description}" %>
+<% end %>
+
+<p><%= link_to "Create your review", new_review_path %></p>

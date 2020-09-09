@@ -2,8 +2,6 @@ class SongsController < ApplicationController
 
     def index
         @songs = Song.search(params[:search])
-        @songs = Song.all
-        # @recordings = Recording.all
     end 
 
     def show
