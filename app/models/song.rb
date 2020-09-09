@@ -9,7 +9,7 @@ validates :search, presence: true
     def self.search(search)
         if search
             Song.all.select{|song| song[:lyric].include?(search)}
-        else 
+        elsif search.blank?
             render_404
         end
     end
