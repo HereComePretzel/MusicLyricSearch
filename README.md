@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 # MusicLyricSearch
 Song Lyrics Search
-=======
+
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -107,6 +107,3 @@ Etc.
 
 
 
-
-
->>>>>>> fd98a91b7e292561b6d67ad2e494b824fefd7487
