@@ -15,6 +15,13 @@ h1, h3 {
 
 <h1>Review Page</h1>
 
-<!--<button style="text-decoration: none"><%= link_to "Delete Profile", new_user_path %></button>-->
 </body>
 </html>
+
+<% @reviews.each do |user_review| %>
+    <p><%= "#{user_review.user.username} | #{user_review.rating} | #{user_review.description}"%></p>
+<% end %>
+
+
+<p><%= link_to "Search Bar", home_path %></p>
+

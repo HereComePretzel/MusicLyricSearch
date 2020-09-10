@@ -13,6 +13,10 @@ Rails.application.routes.draw do
 
   get '/sessions/new', to:'sessions#new', as:'new_login'
   post '/login', to:'sessions#create', as:'login'
-  get '/logout', to:'sessions#destroy', as:'logout'
+  get '/search', to: 'recordings#search', as: 'recording_search'
+  
+
+  delete '/logout', to:'sessions#destroy', as:'logout'
+
 
 end

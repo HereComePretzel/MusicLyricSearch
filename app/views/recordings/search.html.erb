@@ -1,0 +1,16 @@
+<h1><%="Search Page"%></h1>
+
+
+
+<p><%= link_to "Search Bar", home_path %></p>
+
+<p>API test below</p>
+<% if @searched_recordings == [] %>
+      <p>Invalid input!</p>
+<% else %>
+      <ul>
+      <% @searched_recordings.each do |recording| %>
+            <li>  <%= recording.artist.name %> | <%= recording.song.name %>  </li>
+      <% end %>
+      </ul>
+<% end %>

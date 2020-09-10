@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +16,22 @@ h1, h3, h4, p {
 
 <h1><%= "Is this what you're looking for?" %></h1>
 
+
 <h4>Song Name: <%= @recording.song.name %></h4>
 <p>Artist Name: <%= @recording.artist.name %></p>
-<p>Rating: <%= @recording.reviews[0].rating %></p>
-<p>Reviews: <%= @recording.reviews[0].description %></p>
+<p>Rating: 
+    <% @recording.reviews.each do |review| %>
+        <%= review.rating %>
+    <% end %>
+</p>
+<p>Reviews: 
+    <% @recording.reviews.each do |review| %>
+        <%= review.description %>
+    <% end %>
+</p>
 <p> Lyrics: <%= @recording.song.lyric %></p>
 <p><%= link_to "Buy/Stream this song", @recording.link, target: :_blank %></p>
+
 <h4>
     <!--<% if logged_in? %>
      <li><%= link_to "Create Review", new_review_path %></li>
@@ -36,3 +47,17 @@ h1, h3, h4, p {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,13 +23,6 @@ h3, p {
 
   </head>
   <body>
-<h1>Profile </h1><br>
-
-<p>Username: <%= @user.username %><p>
-<p>First name: <%= @user.first_name %></p>
-<p>Last name: <%= @user.last_name %></p>
-<p>Age: <%= @user.age %></p>
-<p>Country: <%= @user.country %></p><br>
 
 <h3> My Reviews: </h3>
     <ul>
@@ -41,12 +35,21 @@ h3, p {
     </ul>
 
 
-<p><button style="text-decoration: none"><%= link_to "Edit Profile", edit_user_path %></button></p>
-<p><button style="text-decoration: none"><%= link_to "Delete Profile", new_user_path %></button></p>
-
 
 <!--<p><%= link_to "Sign Out", logout_path, method: :delete %></p>
-<button style="text-decoration: none"><%= link_to "Go to Search Bar", home_path %></button> -->
+
+<h1><%=  @user.first_name %></h1>
+
+<h4>Username: <%= @user.username %></h4>
+<p>First Name: <%= @user.first_name %></p>
+<p>Last Name: <%= @user.last_name %></p>
+<p>Age: <%= @user.age %></p>
+<p>Country: <%= @user.country %></p>
+
+<%= button_to "Edit Profile", edit_user_path(@user), {method: :get} %><br>
+
+<%= button_to "Delete Profile", user_path(@user), {method: :delete, data: {confirm: "Are you sure you want to delete your profile?"}} %>
+
 
 </body>
 </html>
