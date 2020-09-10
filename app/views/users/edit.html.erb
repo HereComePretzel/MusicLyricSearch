@@ -1,4 +1,19 @@
-<h1>Edit page </h1>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+
+h1, h3, h4 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1>Who dis? </h1>
 
 <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
@@ -6,35 +21,39 @@
     <% end %>
 <% end %>
 
-<%= form_for @user, controller: 'users', action: 'create' do |f| %>
-<%= f.label :first_name %>
+<h4><%= form_for @user, controller: 'users', action: 'create' do |f| %><br>
+<%= f.label :first_name %><br>
 <%= f.text_field :first_name %><br>
 
-<%= f.label :last_name %>
+<%= f.label :last_name %><br>
 <%= f.text_field :last_name %><br>
 
-<%= f.label :username %>
+<%= f.label :username %><br>
 <%= f.text_field :username %><br>
 
-<%= f.label :password %>
+<%= f.label :password %><br>
 <%= f.password_field :password %><br>
 
-<%= f.label :password_confirmation %>
+<%= f.label :password_confirmation %><br>
 <%= f.password_field :password_confirmation %><br>
 
-<%= f.label :email %>
+<%= f.label :email %><br>
 <%= f.text_field :email %><br>
 
-<%= f.label :age %>
+<%= f.label :age %><br>
 <%= f.number_field :age %><br>
 
-<%= f.label :country %>
+<%= f.label :country %><br>
 <%= f.text_field :country %><br>
 
-<%= f.label :img_url %>
+<%= f.label :img_url %><br>
 <%= f.text_field :img_url %><br>
-
-<%= f.submit "create" %>
+<br>
+<%= f.submit "Update" %></h4>
 <% end %>
 
-<p><%= link_to "Search Again", home_path %></p>
+
+
+<!--<p><%= link_to "Search Again", home_path %></p>-->
+</body>
+</html>

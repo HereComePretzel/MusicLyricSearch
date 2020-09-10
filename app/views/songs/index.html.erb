@@ -1,6 +1,21 @@
-<h1><%="Song Index Page"%></h1>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
 
-<% if @songs.length == 0 %>
+h1, h3 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1><%="Here's the skinny:"%></h1>
+
+<h3><% if @songs.length == 0 %>
     <p>No Songs Found</p>
 <% else %>
     <% @songs.each do |song|%>
@@ -8,6 +23,11 @@
             <%= link_to recording.song.name, recording_path(recording) %>
         <% end %>
     <% end %>
-<% end %>
+<% end %></h3>
 
-<p><%= link_to "Search Bar", home_path %></p>
+
+
+<!-- <p><%= link_to "Search Bar", home_path %></p> -->
+
+</body>
+</html>

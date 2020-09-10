@@ -1,7 +1,24 @@
-<h1>Index</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
 
-<% @reviews.each do |review| %>
-    <%= "#{review.rating}, #{review.description}" %>
+h1, h3, h4 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1>Reviews Index</h1>
+<br>
+<br>
+
+<h4><% @reviews.each do |review| %>
+    <%= "#{review.rating}. #{review.description}" %></h4>
 <% end %>
 
-<p><%= link_to "Create your review", new_review_path %></p>
+<!-- <p><%= link_to "Create your review", new_review_path %></p> -->

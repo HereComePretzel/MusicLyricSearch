@@ -1,19 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+
+h1, h4 {
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+
 <h1>New Review </h1>
 
-<%= form_for @review do |f| %>
-<%= f.label :rating %>
+<h4><%= form_for @review do |f| %>
+<%= f.label :rating %><br>
 <%= f.number_field :rating, min: 1, max: 5 %><br>
 
-<%= f.label :description %>
+<%= f.label :description %><br>
 <%= f.text_field :description %><br>
 
-<%= f.label :user_id %>
+<%= f.label :user_id %><br>
 <%= f.collection_select :user_id, User.all, :id, :username %><br>
 
-<%= f.label :recording_id %>
-<%= f.collection_select :recording_id, Recording.all, :id, :link %>
+<%= f.label :recording_id %><br>
+<%= f.collection_select :recording_id, Recording.all, :id, :link %><br>
+<br>
+<%= f.submit "These are my feelings" %>
+<% end %></h4>
 
-<%= f.submit "create" %>
-<% end %>
-
-<p><%= link_to "See all your reviews", reviews_path %></p>
+<!--<p><%= link_to "See all your reviews", reviews_path %></p>-->
+</body>
+</html>
