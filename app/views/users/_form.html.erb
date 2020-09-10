@@ -4,34 +4,34 @@
     <% end %>
 <% end %>
 
-<%= form_for @user, controller: 'users', action: 'create' do |f| %>
-<%= f.label :first_name %>
-<%= f.text_field :first_name %><br>
+<%= form_for @user do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %><br>
 
-<%= f.label :last_name %>
-<%= f.text_field :last_name %><br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %><br>
 
-<%= f.label :username %>
-<%= f.text_field :username %><br>
+    <%= f.label :username %>
+    <%= f.text_field :username %><br>
 
-<%= f.label :password %>
-<%= f.password_field :password %><br>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
 
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %><br>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %><br>
 
-<%= f.label :email %>
-<%= f.text_field :email %><br>
+    <%= f.label :email %>
+    <%= f.text_field :email %><br>
 
-<%= f.label :age %>
-<%= f.number_field :age %><br>
+    <%= f.label :age %>
+    <%= f.number_field :age %><br>
 
-<%= f.label :country %>
-<%= f.text_field :country %><br>
+    <%= f.label :country %>
+    <%= f.text_field :country %><br>
 
-<%= f.label :img_url %>
-<%= f.text_field :img_url %><br>
+    <%= f.label :img_url %>
+    <%= f.text_field :img_url %><br>
 
-<%= f.submit %>
+    <%= f.submit %>
 <% end %>
 
