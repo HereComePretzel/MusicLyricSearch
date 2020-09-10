@@ -1,25 +1,14 @@
-<h1>User Profile </h1>
+<h1><%=  @user.first_name %></h1>
 
-<h4><%= @user.username %></h4><br>
-<p><%= @user.first_name %></p><br>
-<p><%= @user.last_name %></p>
-<p><%= @user.age %></p><br>
-<p><%= @user.country %></p><br>
+<h4>Username: <%= @user.username %></h4>
+<p>First Name: <%= @user.first_name %></p>
+<p>Last Name: <%= @user.last_name %></p>
+<p>Age: <%= @user.age %></p>
+<p>Country: <%= @user.country %></p>
 
-<h4> My Reviews: 
-    <ul>
-        <% @user.reviews.each do |review| %>
-        <% song_review = review.recording.song_id %>
-        <li><%= link_to Song.find(song_review).name, recording_path(review.recording_id) %></li>
-        <%= review.recording.artist.name %>
-        <li><%= "#{review.description} | #{review.rating}" %></li>
-        <% end %>
-    </ul>
-</h4>
+<%= button_to "Edit Profile", edit_user_path(@user), {method: :get} %><br>
 
-<button style="text-decoration: none"><%= link_to "Edit Profile", edit_user_path %></button>
-<button style="text-decoration: none"><%= link_to "Delete Profile", new_user_path %></button>
-
+<%= button_to "Delete Profile", user_path(@user), {method: :delete, data: {confirm: "Are you sure you want to delete your profile?"}} %>
 
 <p><%= link_to "Sign Out", logout_path, method: :delete %></p>
 <button style="text-decoration: none"><%= link_to "Go to Search Bar", home_path %></button>

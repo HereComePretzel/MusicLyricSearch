@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
 
     def show
         @review = Review.find(params[:id])
+        @reviews = Review.all
     end
 
     def new
@@ -12,8 +13,10 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @review = Review.create(review_params)
-        redirect_to review_path(@review)
+        @user = User.find_by(id: session[:user_id])
+        @user.my_reviews << Review.create(review_params)
+        
+        redirect_to home_path
     end
 
     def destroy
@@ -23,7 +26,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:rating, :user_id, :recording_id, :description)
+        params.require(:review).permit(:rating, :description, :recording_id)
     end
 
 end

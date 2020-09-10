@@ -1,9 +1,9 @@
 <h1>Sign In </h1>
 
 <ul>
-<% if flash[:error] %>
-<li style="color:red"><%= flash[:error] %></li>
-<% end %>
+    <% if flash[:error] %>
+        <li style="color:red"><%= flash[:error] %></li>
+    <% end %>
 </ul>
 
 <%= form_for :session, url: login_path, method: :post do |f| %>
