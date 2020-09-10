@@ -1,12 +1,17 @@
-<h1><%= "Welcome Page" %></h1>
+<h1><%= "MusicLyric Search" %></h1>
 
 <%= form_tag(recording_search_path, method: :get) do %>
     <%= text_field_tag :search, params[:search], placeholder: "Enter word/phrase" %>
     <%= submit_tag 'Search' %>
 <% end %>
 
-<p><%= "Description" %></p>
+<p><%= "The app lets you search any music lyric. Just type your word or phrase" %></p>
 
-<p><%= link_to "Sign In", new_login_path %></p>
-<p><%= link_to "Sign Up", new_user_path %>
-<p><%= link_to "Sign Out", logout_path, method: :post %></p>
+<h4>
+    <% if logged_in? %>
+        <li> <%= link_to "logout", logout_path, method: :delete %> </li>
+    <% else %>
+        <li><%= link_to "Sign-Up", new_user_path %></li>
+        <li ><%= link_to "Sign-In", new_login_path %></li>
+    <% end %>
+</h4>

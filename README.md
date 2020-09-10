@@ -1,6 +1,8 @@
 
 # MusicLyricSearch
-Song Lyrics Search
+
+
+
 
 # README
 
@@ -93,4 +95,4 @@ Etc.
 Stretch Goals (after MVP):
 Get song info from an API
 Add CSS styling
-Etc.
+

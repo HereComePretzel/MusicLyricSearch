@@ -1,0 +1,8 @@
+<h1>Review Page</h1>
+
+<% @reviews.each do |user_review| %>
+    <p><%= "#{user_review.user.username} | #{user_review.rating} | #{user_review.description}"%></p>
+<% end %>
+
+
+<p><%= link_to "Search Bar", home_path %></p>
