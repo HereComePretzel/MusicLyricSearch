@@ -1,6 +1,17 @@
-<h1><%= "Search Bar Submit Button" %></h1>
+<h1><%= "MusicLyric Search" %></h1>
 
-<%= form_for @songs do |f| %>
-<%= f.text_field :name %>
-<%= f.submit %>
+<%= form_tag(songs_path, method: :get) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Enter word/phrase" %>
+    <%= submit_tag 'Search' %>
 <% end %>
+
+<p><%= "The app lets you search any music lyric. Just type your word or phrase" %></p>
+
+<h4>
+    <% if logged_in? %>
+        <li> <%= link_to "logout", logout_path, method: :delete %> </li>
+    <% else %>
+        <li><%= link_to "Sign-Up", new_user_path %></li>
+        <li ><%= link_to "Sign-In", new_login_path %></li>
+    <% end %>
+</h4>

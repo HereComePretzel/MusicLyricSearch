@@ -1,5 +1,15 @@
-<h1><%="Index Page"%></h1>
+<h1><%="Song Results"%></h1>
 
-<% @songs.each do |song|%>
-<% link_to song.name, song_path(song) %>
+<% if @songs.length == 0 %>
+    <p>No Songs Found</p>
+<% else %>
+    <ol>
+        <% @songs.each do |song|%>
+            <% song.recordings.each do |recording| %>
+                <li><%= link_to "#{recording.song.name} - #{recording.artist.name} ", recording_path(recording) %></li>
+            <% end %>
+        <% end %>
+    </ol>
 <% end %>
+
+<p><%= link_to "Search Bar", home_path %></p>

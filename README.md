@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+# MusicLyricSearch
+Song Lyrics Search
+=======
+>>>>>>> 72ffc03a7921d574aa2d9d81ee9ca085edc84605
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -105,3 +112,7 @@ Etc.
 
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> fd98a91b7e292561b6d67ad2e494b824fefd7487
+>>>>>>> 72ffc03a7921d574aa2d9d81ee9ca085edc84605
