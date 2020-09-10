@@ -1,7 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+
 <h1><%="Song Results"%></h1>
 
 
-<% if @songs.length == 0 %>
+h1, h3 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1><%="Here's the skinny:"%></h1>
+
+<h3><% if @songs.length == 0 %>
     <p>No Songs Found</p>
 <% else %>
     <ol>
@@ -10,6 +28,17 @@
                 <li><%= link_to "#{recording.song.name} - #{recording.artist.name} ", recording_path(recording) %></li>
             <% end %>
         <% end %>
+
+    <% end %>
+<% end %></h3>
+
+
+
+<!-- <p><%= link_to "Search Bar", home_path %></p> -->
+
+</body>
+</html>
+
     </ol>
 <% end %>
 
@@ -27,3 +56,4 @@
       <% end %>
       </ul>
 <% end %>
+

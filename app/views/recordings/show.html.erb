@@ -1,4 +1,21 @@
-<h1><%= @recording.song.name %></h1>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+
+h1, h3, h4, p {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1><%= "Is this what you're looking for?" %></h1>
+
 
 <h4>Song Name: <%= @recording.song.name %></h4>
 <p>Artist Name: <%= @recording.artist.name %></p>
@@ -15,10 +32,27 @@
 <p> Lyrics: <%= @recording.song.lyric %></p>
 <p><%= link_to "Buy/Stream this song", @recording.link, target: :_blank %></p>
 
+<h4>
+    <!--<% if logged_in? %>
+     <li><%= link_to "Create Review", new_review_path %></li>
+        <li> <%= link_to "logout", logout_path, method: :delete %> </li>
+      <% else %>
+        <li><%= link_to "Sign-Up", new_user_path %></li>
+        <li ><%= link_to "Sign-In", new_login_path %></li>
+    <% end %>
+</h4>
 
-<li><%= link_to "Create Review", new_review_path %></li>
-<br>
-<button style="text-decoration: none"><%= link_to "Go to Search Bar", home_path %></button>
+
+<button style="text-decoration: none"><%= link_to "Go to Search Bar", home_path %></button>-->
+
+</body>
+</html>
+
+
+
+
+
+
 
 
 

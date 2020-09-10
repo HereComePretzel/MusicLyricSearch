@@ -1,4 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+
+h1, h3 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
 <h1>Review Page</h1>
+
+</body>
+</html>
 
 <% @reviews.each do |user_review| %>
     <p><%= "#{user_review.user.username} | #{user_review.rating} | #{user_review.description}"%></p>
@@ -6,3 +24,4 @@
 
 
 <p><%= link_to "Search Bar", home_path %></p>
+

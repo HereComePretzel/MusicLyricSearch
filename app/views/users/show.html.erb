@@ -1,3 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+<style>
+
+h1 {
+  text-align: center;
+}
+
+body {
+  background-color: lightblue;
+}
+
+h3, p {
+    text-align: center;
+}
+
+
+
+</style>
+
+  </head>
+  <body>
+
+<h3> My Reviews: </h3>
+    <ul>
+        <% @user.reviews.each do |review| %>
+        <% song_review = review.recording.song_id %>
+        <li><%= link_to Song.find(song_review).name, recording_path(review.recording_id) %></li>
+        <p><%= review.recording.artist.name %></p>
+        <p><li><%= "#{review.description} | #{review.rating}" %></li></p>
+        <% end %>
+    </ul>
+
+
+
+<!--<p><%= link_to "Sign Out", logout_path, method: :delete %></p>
+
 <h1><%=  @user.first_name %></h1>
 
 <h4>Username: <%= @user.username %></h4>
@@ -10,6 +50,7 @@
 
 <%= button_to "Delete Profile", user_path(@user), {method: :delete, data: {confirm: "Are you sure you want to delete your profile?"}} %>
 
-<p><%= link_to "Sign Out", logout_path, method: :delete %></p>
-<button style="text-decoration: none"><%= link_to "Go to Search Bar", home_path %></button>
+
+</body>
+</html>
 
