@@ -6,9 +6,8 @@
 <p>Reviews: <%= @recording.reviews[0].description %></p>
 <p> Lyrics: <%= @recording.song.lyric %></p>
 <p><%= link_to "Buy/Stream this song", @recording.link, target: :_blank %></p>
-<h4>
-    <% if %>
-    <%= link_to "Create Review", new_user_path(@user) %></h4>
 
 
 <button style="text-decoration: none"><%= link_to "Go to Search Bar", home_path %></button>
+
+<br>

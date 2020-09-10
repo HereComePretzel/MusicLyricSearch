@@ -6,6 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv::Railtie.load
+
+HOSTNAME = ENV['HOSTNAME']
+
 module MusicLyricSearch
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -17,3 +21,4 @@ module MusicLyricSearch
     # the framework and any gems in your application.
   end
 end
+

@@ -1,9 +1,11 @@
 class SongsController < ApplicationController
 
     def index
-        @songs = Song.search(params[:search])
-        @songs = Song.all
-        # @recordings = Recording.all
+        # @songs = Song.search(params[:search])
+
+        # code below is temporary, testing out API
+        @tracks_array = Recording.api_test(params[:search])
+        
     end 
 
     def show

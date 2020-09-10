@@ -4,14 +4,13 @@ has_many :recordings
 has_many :artist, through: :recordings
 
 
+    # def self.search(search)
+    #     if search == ""
+    #         return []
+    #     else
+    #         Song.all.select{|song| song[:lyric].downcase.include?(search.downcase)}
+    #     end
+    # end
 
-
-def self.search(search)
-        if search
-            Song.all.select{|song| song[:lyric].include?(search)}
-        elsif search.blank?
-            puts "Error"
-        end
-    end
-end
+end #end of song Class
 

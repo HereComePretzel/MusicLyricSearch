@@ -1,7 +1,16 @@
 <h1><%="Index Page"%></h1>
 
-<% @songs.each do |song|%>
-<%= link_to song.name, song_path(song) %>
-<% end %>
+
 
 <p><%= link_to "Search Bar", home_path %></p>
+
+<p>API test below</p>
+<% if @tracks_array == "Invalid input" %>
+      <p>Invalid input!</p>
+<% else %>
+      <ul>
+      <% @tracks_array.each do |track_hash| %>
+            <li>  <%= track_hash["track"]["artist_name"] %> | <%= track_hash["track"]["track_name"]%>  </li>
+      <% end %>
+      </ul>
+<% end %>
