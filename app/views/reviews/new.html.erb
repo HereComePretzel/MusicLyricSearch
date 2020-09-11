@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+
+h1, h4 {
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+
+<h1>  </h1>
+
+<% if logged_in? %>
+    <%= form_for @review do |f| %>
+        <%= f.label :rating %>
+        <%= f.number_field :rating, min: 1, max: 5 %><br>
+
+        <%= f.label :description %>
+        <%= f.text_field :description %><br>
+
+        <%= f.submit "Create Review" %>
+    <% end %>
+    <br>
+<% else %>
+    <li><%= link_to "Sign Up to review", new_user_path %></li>
+    <li ><%= link_to "Sign In to review", new_login_path %></li>
+<% end %>
+
+
+
+

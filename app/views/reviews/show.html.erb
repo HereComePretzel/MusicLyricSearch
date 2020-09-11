@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+
+h1, h3 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1>Reviews Page: </h1>
+ <ul>
+        <% @user.reviews.each do |review| %>
+        <% song_review = review.recording.song_id %>
+        <li><%= link_to Song.find(song_review).name, recording_path(review.recording_id) %></li>
+        <p><%= review.recording.artist.name %></p>
+        <p><li><%= "#{review.description} | #{review.rating}" %></li></p>
+        <% end %>
+    </ul>
+
+</body>
+</html>
+
+

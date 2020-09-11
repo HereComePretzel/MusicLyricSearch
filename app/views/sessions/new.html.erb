@@ -1,17 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+
+h1, h3, h4 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
 <h1>Sign In </h1>
 
 <ul>
-<% if flash[:error] %>
-<li style="color:red;"><%= flash[:error] %></li>
-<% end %>
+    <% if flash[:error] %>
+        <li style="color:red"><%= flash[:error] %></li>
+    <% end %>
 </ul>
 
-<%= form_for @user, url: login_path, method: :post do |f| %>
-<%= f.label :username %>
+<h4><%= form_for :session, url: login_path, method: :post do |f| %>
+<%= f.label :username %><br>
 <%= f.text_field :username %><br>
-<%= f.label :password %>
+<%= f.label :password %><br>
 <%= f.password_field :password %><br>
+<br>
 <%= f.submit "log in" %>
-<% end %>
+<% end %></h4>
 
-<p><%= link_to "Search Bar", home_path %></p>
+<!-- <p><%= link_to "Search Bar", home_path %></p>
