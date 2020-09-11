@@ -15,8 +15,7 @@ h1, h4 {
 <body>
 
 
-<h1>New Review </h1>
-
+<h1>  </h1>
 
 <% if logged_in? %>
     <%= form_for @review do |f| %>
@@ -26,12 +25,9 @@ h1, h4 {
         <%= f.label :description %>
         <%= f.text_field :description %><br>
 
-        <%= f.label :recording_id %>
-        <%= f.collection_select :recording_id, Recording.all, :id, :link %>
         <%= f.submit "Create Review" %>
     <% end %>
     <br>
-    <li> <%= link_to "logout", logout_path, method: :delete %> </li>
 <% else %>
     <li><%= link_to "Sign Up to review", new_user_path %></li>
     <li ><%= link_to "Sign In to review", new_login_path %></li>

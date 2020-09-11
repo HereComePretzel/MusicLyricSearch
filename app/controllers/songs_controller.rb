@@ -1,8 +1,6 @@
 class SongsController < ApplicationController
 
     def index
-
-        @songs = Song.search(params[:search])
     end 
 
 

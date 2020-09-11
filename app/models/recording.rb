@@ -55,6 +55,14 @@ $id_search_parameter = "&track_id="
         self.all.select { |recording| recording.song.lyric.include?(search_term) }
     end
 
+    def average_rating
+        sum = self.reviews.uniq.sum do |review|
+            review.rating
+        end
+        average = sum.to_f / self.reviews.uniq.count
+        average.round(2)
+    end
+
 end #end of r class
 
 

@@ -13,15 +13,17 @@ h1, h3 {
 </head>
 <body>
 
-<h1>Review Page</h1>
+<h1>Reviews Page: </h1>
+ <ul>
+        <% @user.reviews.each do |review| %>
+        <% song_review = review.recording.song_id %>
+        <li><%= link_to Song.find(song_review).name, recording_path(review.recording_id) %></li>
+        <p><%= review.recording.artist.name %></p>
+        <p><li><%= "#{review.description} | #{review.rating}" %></li></p>
+        <% end %>
+    </ul>
 
 </body>
 </html>
 
-<% @reviews.each do |user_review| %>
-    <p><%= "#{user_review.user.username} | #{user_review.rating} | #{user_review.description}"%></p>
-<% end %>
-
-
-<p><%= link_to "Search Bar", home_path %></p>
 

@@ -4,7 +4,6 @@ class RecordingsController < ApplicationController
         @recording = Recording.find(params[:id])
     end
 
-
     def search
         @searched_recordings = []
         if params[:search] != ""
