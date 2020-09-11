@@ -45,7 +45,7 @@ button:hover, a:hover {
 <h2 style="text-align:center"><%= "#{@user.first_name.capitalize}" "#{}" "#{@user.last_name.capitalize}" %></h2>
 
 <div class="card">
-  <img src="https://www.usnews.com/cmsmedia/7c/65/5feb1816423dbf2602999815a2db/161227-businessman-stock.jpg" alt="profile photo" style="width:100%">
+  <img src="https://cdn150.picsart.com/upscale-245339439045212.png" alt="profile photo" style="width:50%; padding-top:20px">
   <h2>Username:<%= @user.username %></h2>
   <p>Email Address: <%= @user.email %></p>
   <p>Age: <%= @user.age %></p>
@@ -56,6 +56,10 @@ button:hover, a:hover {
   </div>
 </div>
 <style>
+  .card {
+    background-color: #F6F6FA;
+    padding-bottom: 15px;
+  }
   .card:hover {
     transform: scale(1.1)
   }

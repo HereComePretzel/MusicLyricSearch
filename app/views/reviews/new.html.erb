@@ -1,11 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.vinyl {
+  width: 10%;
+  height: 10%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  -webkit-animation: spin 2s linear infinite; 
+  padding-bottom: 15px;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.review {
+    text-align: center;
+  }
+.col-md-7.col-md-offset-1 {
+  text-align:top;
+}
+</style>
+</head>
+
+<div class="vinyl"><img src="https://pngriver.com/wp-content/uploads/2018/04/Download-Vinyl-PNG-Image-1.png" alt="vinyl" width=100% height=100% ></div>
+
 <div class="review"
 <% if logged_in? %>
     <%= form_for @review do |f| %>
-        <%= f.label :rating %>
-        <%= f.number_field :rating, min: 1, max: 5 %><br>
+        <%= f.label :rating %><br>
+        <%= f.number_field :rating, min: 1, max: 5 %><br><br>
 
-        <%= f.label :description %>
-        <%= f.text_field :description %><br>
+        <%= f.label :description, "What's stuck in your mind?" %><br>
+        <%= f.text_area :description %><br>
 
         <% f.label :recording_id %>
         <% f.number_field :recording_id, value: @rec_id %><br>
@@ -18,11 +57,22 @@
     <li ><%= link_to "Sign In to review", new_login_path %></li>
 <% end %>
 
-<style>
-  .review {
-    text-align: center;
-  }
-</style>
+
 </div>
 
+<div class="col-md-7 col-md-offset-1">
+  <h3 class="review_title"><%= @review_recording.song.name %></h3>
+  <p><%= @review_recording.artist.name %></p>
+    <h4>Reviews: </h4>
+      <% if @review_recording.blank? %>
+        <p> No reviews yet! </p>
+      <% else %>
+        <% @review_recording.reviews.each do |review| %>
+          <div class="reviews">
+            <div class="stars" data-score= <%= review.rating %> ></div>
+          <p><%= review.description %></p>
+        <% end %>
+      <% end %>
+    </ul>
+</div>
 
