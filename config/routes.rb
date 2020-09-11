@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   post '/logout', to:'sessions#destroy', as:'logout'
 
   get '/search', to: 'recordings#search', as: 'recording_search'
-  
+
 end

@@ -41,8 +41,8 @@ $id_search_parameter = "&track_id="
             lyrics = response_hash["message"]["body"]["lyrics"]["lyrics_body"]
             self.generate_recording(track, lyrics)
         end
-
     end
+        
 
     def self.generate_recording(track, lyrics)
         artist = Artist.find_or_create_by(name: track["artist_name"])
