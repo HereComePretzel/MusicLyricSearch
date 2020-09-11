@@ -45,9 +45,17 @@ $id_search_parameter = "&track_id="
         
 
     def self.generate_recording(track, lyrics)
-        artist = Artist.find_or_create_by(name: track["artist_name"])
-        song = Song.find_or_create_by(name: track["track_name"], lyric: lyrics)
-        Recording.find_or_create_by(link: track["track_edit_url"], artist_id: artist.id, song_id: song.id)
+        if track["artist_name"]
+            artist = Artist.find_or_create_by(name: track["artist_name"]) 
+        end
+
+        if track["track_name"]
+            song = Song.find_or_create_by(name: track["track_name"], lyric: lyrics)
+        end
+        
+        if track["track_edit_url"]
+            Recording.find_or_create_by(link: track["track_edit_url"], artist_id: artist.id, song_id: song.id)
+        end
     end
 
 
