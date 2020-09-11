@@ -41,8 +41,8 @@
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
         <style>
           .checked {
             color: orange;
@@ -68,7 +68,7 @@
               </tr>
               <tr>
                 <td><strong> Lyrics: </strong></td>
-                <td><%= @recording.song.lyric %></td>
+                <td><%= simple_format(@recording.song.lyric) %></td>
               </tr>
                 <%= link_to "View full lyrics", @recording.link, target: :_blank %>
               <% if logged_in? %>

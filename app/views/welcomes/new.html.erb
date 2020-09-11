@@ -1,11 +1,11 @@
 <div class="search_bar">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <h1 style="font-family:geneva"><%= "What's stuck in your head?" %></h1>
+  <h1 style="font-family:geneva"><%= "What's stuck in your head?" %></h1><br>
 
   <h4><%= form_tag(recording_search_path, method: :get) do %>
 
-      <%= text_field_tag :search, params[:search], placeholder: "Enter word/phrase" %>
-      <%= submit_tag 'Unstick' %></h4>
+      <p><%= text_field_tag :search, params[:search], placeholder: "Enter word/phrase" %></p>
+      <p><%= submit_tag 'Unstick' %></p></h4>
   <% end %>
   <style>
     .search_bar {
