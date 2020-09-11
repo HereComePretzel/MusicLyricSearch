@@ -37,7 +37,7 @@
 
 <div class="vinyl"><img src="https://pngriver.com/wp-content/uploads/2018/04/Download-Vinyl-PNG-Image-1.png" alt="vinyl" width=100% height=100% ></div>
 
-<div class="review"
+<div class="review">
 <% if logged_in? %>
     <%= form_for @review do |f| %>
         <%= f.label :rating %><br>
@@ -46,8 +46,8 @@
         <%= f.label :description, "What's stuck in your mind?" %><br>
         <%= f.text_area :description %><br>
 
-        <% f.label :recording_id %>
-        <% f.number_field :recording_id, value: @rec_id %><br>
+        <%= f.label :recording_id, "Track ID"%><br>
+        <%= f.number_field :recording_id, value: @rec_id %><br><br>
 
         <%= f.submit "Create Review" %>
     <% end %>
@@ -56,15 +56,13 @@
     <li><%= link_to "Sign Up to review", new_user_path %></li>
     <li ><%= link_to "Sign In to review", new_login_path %></li>
 <% end %>
-
-
 </div>
 
 <div class="col-md-7 col-md-offset-1">
   <h3 class="review_title"><%= @review_recording.song.name %></h3>
   <p><%= @review_recording.artist.name %></p>
     <h4>Reviews: </h4>
-      <% if @review_recording.blank? %>
+      <% if @review_recording.reviews.blank? %>
         <p> No reviews yet! </p>
       <% else %>
         <% @review_recording.reviews.each do |review| %>

@@ -42,11 +42,12 @@ button:hover, a:hover {
 </head>
 <body>
 
-<h2 style="text-align:center"><%= "#{@user.first_name.capitalize}" "#{}" "#{@user.last_name.capitalize}" %></h2>
-
+<h2 style="text-align:center"><%= "#{@user.first_name.capitalize} " "#{ }" "#{@user.last_name.capitalize}" %></h2>
+<br><br>
 <div class="card">
   <img src="https://cdn150.picsart.com/upscale-245339439045212.png" alt="profile photo" style="width:50%; padding-top:20px">
-  <h2>Username:<%= @user.username %></h2>
+  <br><br>
+  <h2>Username: <%= @user.username %></h2>
   <p>Email Address: <%= @user.email %></p>
   <p>Age: <%= @user.age %></p>
   <p>Country: <%= @user.country %></p>
