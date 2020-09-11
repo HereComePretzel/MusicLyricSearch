@@ -1,17 +1,16 @@
-<h1>Sign In </h1>
-
+<h2 style="text-align:center">Sign In</h2>
 <ul>
-<% if flash[:error] %>
-<li style="color:red;"><%= flash[:error] %></li>
-<% end %>
+    <% if flash[:error] %>
+        <li style="color:red"><%= flash[:error] %></li>
+    <% end %>
 </ul>
 
-<%= form_for @user, url: login_path, method: :post do |f| %>
-<%= f.label :username %>
-<%= f.text_field :username %><br>
-<%= f.label :password %>
-<%= f.password_field :password %><br>
-<%= f.submit "log in" %>
-<% end %>
+<h4 style="text-align:center"><%= form_for :session, url: login_path, method: :post do |f| %>
+  <%= f.label :username %><br>
+  <%= f.text_field :username, placeholder: "Enter Username" %><br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password, placeholder: "Enter Password" %><br>
+  <br>
+  <%= f.submit "Sign In" %>
+<% end %></h4>
 
-<p><%= link_to "Search Bar", home_path %></p>

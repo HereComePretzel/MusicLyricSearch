@@ -1,12 +1,19 @@
-<h1><%= "Welcome Page" %></h1>
+<div class="search_bar">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <h1><%= "What's stuck in your head?" %></h1><br>
 
-<%= form_tag(songs_path, method: :get) do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Enter word/phrase" %>
-    <%= submit_tag 'Search' %>
-<% end %>
+  <h4><%= form_tag(recording_search_path, method: :get) do %>
 
-<p><%= "Description" %></p>
+      <p><%= text_field_tag :search, params[:search], placeholder: "Enter word/phrase" %></p>
+      <p><%= submit_tag 'Unstick' %></p></h4>
+  <% end %>
+  <style>
+    .search_bar {
+      text-align: center;
+    }
+    .search_bar:hover {
+      transform: scale(1.1)
+    }
+  </style>
+</div>
 
-<p><%= link_to "Sign In", new_login_path %></p>
-<p><%= link_to "Sign Up", new_user_path %>
-<p><%= link_to "Sign Out", logout_path, method: :post %></p>

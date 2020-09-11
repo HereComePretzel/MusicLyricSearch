@@ -1,39 +1,37 @@
-<h1>Sign Up Form </h1>
+<h1 style="text-align:center">Welcome to the Club!</h1>
 <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
         <p style="color:red"><%= error %></p>
     <% end %>
 <% end %>
 
-<%= form_for @user, controller: 'users', action: 'create' do |f| %>
+<h4 style="text-align:center"><%= form_for @user, controller: 'users', action: 'create' do |f| %>
 <%= f.label :first_name %>
-<%= f.text_field :first_name %><br>
+<%= f.text_field :first_name, placeholder: "First Name" %><br><br>
 
 <%= f.label :last_name %>
-<%= f.text_field :last_name %><br>
+<%= f.text_field :last_name, placeholder: "Last Name" %><br><br>
 
 <%= f.label :username %>
-<%= f.text_field :username %><br>
+<%= f.text_field :username, placeholder: "Username" %><br><br>
 
 <%= f.label :password %>
-<%= f.password_field :password %><br>
+<%= f.password_field :password, placeholder: "Password" %><br><br>
 
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %><br>
+<%= f.label :password_confirmation, "Confirm PWD" %>
+<%= f.password_field :password_confirmation, placeholder: "Password" %><br><br>
 
 <%= f.label :email %>
-<%= f.text_field :email %><br>
+<%= f.text_field :email, placeholder: "Email Address" %><br><br>
 
 <%= f.label :age %>
-<%= f.number_field :age %><br>
+<%= f.number_field :age, placeholder: "Age" %><br><br>
 
 <%= f.label :country %>
-<%= f.text_field :country %><br>
+<%= f.text_field :country, placeholder: "Country" %><br><br>
 
 <%= f.label :img_url %>
-<%= f.text_field :img_url %><br>
-
-<%= f.submit "create" %>
+<%= f.text_field :img_url, placeholder: "Photo" %><br><br>
+<br>
+<%= f.submit "One of us! One of us!" %></h4>
 <% end %>
-
-<p><%= link_to "Search Again", home_path %></p>

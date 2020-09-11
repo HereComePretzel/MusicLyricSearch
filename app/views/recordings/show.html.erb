@@ -1,14 +1,102 @@
-<h1><%= "Recording Page" %></h1>
+<!DOCTYPE html>
+<html>
+<head>
 
-<h4>Song Name: <%= @recording.song.name %></h4>
-<p>Artist Name: <%= @recording.artist.name %></p>
-<p>Rating: <%= @recording.reviews[0].rating %></p>
-<p>Reviews: <%= @recording.reviews[0].description %></p>
-<p> Lyrics: <%= @recording.song.lyric %></p>
-<p><%= link_to "Buy/Stream this song", @recording.link, target: :_blank %></p>
-<h4>
-    <% if %>
-    <%= link_to "Create Review", new_user_path(@user) %></h4>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.vinyl {
+  
+  
+  
+  width: 50%;
+  height: 50%;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
 
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
 
-<button style="text-decoration: none"><%= link_to "Go to Search Bar", home_path %></button>
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+</head>
+<body>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+      <h3><%= "Is this what you're looking for?" %></h3>
+        <div class="vinyl"><img src="https://pngriver.com/wp-content/uploads/2018/04/Download-Vinyl-PNG-Image-1.png" alt="vinyl" width=100% height=100% ></div>
+        <div class="star-rating" data-score= <@average_rating %></div>
+        <em><%= "#{@recording.reviews.length} reviews"%></em>
+        <div>
+        <div class="stars">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+        <style>
+          .checked {
+            color: orange;
+          }
+        </style>
+        </div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong> Song Title:</strong></td>
+                <td><%= @recording.song.name %></td>
+              </tr>
+                <td><strong> Artist Name: </strong></td>
+                <td><%= @recording.artist.name %></td>
+              </tr>
+              <tr>
+                <td><strong>Rating:</strong></td>
+                <% if @recording.average_rating > 0 %>
+                  <td><%= @recording.average_rating %></td>
+                <% else %>
+                  <td><%= "Not rated yet" %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><strong> Lyrics: </strong></td>
+                <td><%= simple_format(@recording.song.lyric) %></td>
+              </tr>
+                <%= link_to "View full lyrics", @recording.link, target: :_blank %>
+              <% if logged_in? %>
+                <p><%= link_to "Create Review", new_review_path %></p>
+              <% else %>
+                <p><%= link_to "Sign Up to Create Review", new_user_path %></p>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-7 col-md-offset-1">
+        <h3 class="review_title"><%= @recording.song.name %></h3>
+        <p><%= @recording.artist.name %></p>
+
+          <h4>Reviews: </h4>
+            <% if @recording.reviews.blank? %>
+              <p> No reviews yet! </p>
+            <% else %>
+              <% @recording.reviews.each do |review| %>
+                <div class="reviews">
+                  <div class="stars" data-score= <%= review.rating %> ></div>
+                <p><%= review.description %></p>
+              <% end %>
+            <% end %>
+          </ul>
+      </div>
+  </div>
+</div>
+

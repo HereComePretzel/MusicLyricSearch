@@ -1,0 +1,12 @@
+<h1><%="Your Results"%></h1>
+
+<% if @searched_recordings == [] %>
+      <p style="font-family:geneva">Invalid input!</p>
+<% else %>
+      <ol>
+      <% @searched_recordings.each do |recording| %>
+            <li><p><%= link_to "#{recording.artist.name} | #{recording.song.name}", recording_path(recording) %></p></li>
+      <% end %>
+      </ol>
+<% end %>
+

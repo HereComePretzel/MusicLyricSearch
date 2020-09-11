@@ -1,15 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MusicLyricSearch</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>MusicLyricSearch</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
+<body>
 
-  <body>
-    <%= yield %>
-  </body>
+      <%= render 'layouts/header' %>
+      
+        <% flash.each do |name, msg| %>
+          <%= content_tag(:div, msg, class: "alert alert-info") %>
+		<% end %>
+
+<%= yield %>
+<footer class="site-footer">
+  <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
+    <a href="#">MusicLyricSearch</a>.
+  </p>
+  <style>  
+    body, h1, h2, h3, h4, h5, p, table, .button_to {
+      font-family: geneva, sans-serif;
+      font-weight: 100;
+    }    
+    .site-footer
+      {
+        background-color:#26272b;
+        padding:45px 0 20px;
+        font-size:15px;
+        line-height:24px;
+        color:#737373;
+        margin-top:380px;
+        
+      }
+    .copyright-text
+      {
+        margin:0;
+        padding-left: 15px
+      }
+      @media (max-width:991px)
+      {
+    .site-footer [class^=col-]
+      {
+          margin-bottom:5px
+      }
+      }
+    @media (max-width:767px)
+      {
+    .site-footer
+      {
+        padding-bottom:0
+      }
+    .site-footer .copyright-text
+      {
+        text-align:center
+      }
+      }
+</footer>
+</body>
 </html>

@@ -1,7 +1,27 @@
-<h1><%="Index Page"%></h1>
 
-<% @songs.each do |song|%>
-<%= link_to song.name, song_path(song) %>
-<% end %>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+
+<h1><%="Song Results"%></h1>
+
+
+h1, h3 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1><%="Here's the skinny:"%></h1>
 
 <p><%= link_to "Search Bar", home_path %></p>
+
+</body>
+</html>
+
+
