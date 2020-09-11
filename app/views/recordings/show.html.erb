@@ -3,7 +3,14 @@
     <div class="row">
       <div class="col-md-4">
         <%= "Image Pic should be here" %>
-        <div class="">
+        <div class="star-rating" data-score= <@average_rating %></div>
+        <em><%= "#{@reviews.length} reviews"%></em>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong> Song Title:</strong></td>
+                <td><%= @recording.song.name %></h4>
 <!DOCTYPE html>
 <html>
 <head>
