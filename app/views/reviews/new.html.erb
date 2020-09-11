@@ -25,6 +25,9 @@ h1, h4 {
         <%= f.label :description %>
         <%= f.text_field :description %><br>
 
+        <%= f.label :recording_id %>
+        <%= f.number_field :recording_id, value: @rec_id %><br>
+
         <%= f.submit "Create Review" %>
     <% end %>
     <br>
@@ -32,7 +35,5 @@ h1, h4 {
     <li><%= link_to "Sign Up to review", new_user_path %></li>
     <li ><%= link_to "Sign In to review", new_login_path %></li>
 <% end %>
-
-
 
 
