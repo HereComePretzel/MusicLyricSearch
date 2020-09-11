@@ -1,43 +1,65 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-
-h1 {
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
   text-align: center;
+  font-family: arial;
 }
 
-body {
-  background-color: lightblue;
+.title {
+  color: grey;
+  font-size: 18px;
 }
 
-h3, p {
-    text-align: center;
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
 }
 
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
 
-
+button:hover, a:hover {
+  opacity: 0.7;
+}
 </style>
+</head>
+<body>
 
-  </head>
-  <body>
+<h2 style="text-align:center"><%= "#{@user.first_name.capitalize}" "#{}" "#{@user.last_name.capitalize}" %></h2>
 
-   
-
-<h1><%=  @user.first_name %></h1>
-
-<p>Username: <%= @user.username %></p>
-<p>First Name: <%= @user.first_name %></p>
-<p>Last Name: <%= @user.last_name %></p>
-<p>Age: <%= @user.age %></p>
-<p>Country: <%= @user.country %></p>
-
-<%= button_to "Edit Profile", edit_user_path(@user), {method: :get} %><br>
-
-<%= button_to "Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"} %>
-
+<div class="card">
+  <img src="https://www.usnews.com/cmsmedia/7c/65/5feb1816423dbf2602999815a2db/161227-businessman-stock.jpg" alt="profile photo" style="width:100%">
+  <h2>Username:<%= @user.username %></h2>
+  <p>Email Address: <%= @user.email %></p>
+  <p>Age: <%= @user.age %></p>
+  <p>Country: <%= @user.country %></p>
+  <div style="margin: 24px 0;">
+    <%= button_to "Edit Profile", edit_user_path(@user), {method: :get} %><br>
+    <%= button_to "Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"} %>
+  </div>
+</div>
+<style>
+  .card:hover {
+    transform: scale(1.1)
+  }
+</style>
 
 </body>
 </html>

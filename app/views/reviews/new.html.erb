@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-body {
-  background-color: lightblue;
-}
-
-h1, h4 {
-  text-align: center;
-}
-
-</style>
-</head>
-<body>
-
-
-<h1>  </h1>
-
+<div class="review"
 <% if logged_in? %>
     <%= form_for @review do |f| %>
         <%= f.label :rating %>
@@ -25,8 +7,8 @@ h1, h4 {
         <%= f.label :description %>
         <%= f.text_field :description %><br>
 
-        <%= f.label :recording_id %>
-        <%= f.number_field :recording_id, value: @rec_id %><br>
+        <% f.label :recording_id %>
+        <% f.number_field :recording_id, value: @rec_id %><br>
 
         <%= f.submit "Create Review" %>
     <% end %>
@@ -35,5 +17,12 @@ h1, h4 {
     <li><%= link_to "Sign Up to review", new_user_path %></li>
     <li ><%= link_to "Sign In to review", new_login_path %></li>
 <% end %>
+
+<style>
+  .review {
+    text-align: center;
+  }
+</style>
+</div>
 
 

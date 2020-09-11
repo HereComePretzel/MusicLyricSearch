@@ -1,8 +1,7 @@
-<h1><%="Search Page"%></h1>
-
+<h1><%="Your Results"%></h1>
 
 <% if @searched_recordings == [] %>
-      <p>Invalid input!</p>
+      <p style="font-family:geneva">Invalid input!</p>
 <% else %>
       <ol>
       <% @searched_recordings.each do |recording| %>
@@ -10,3 +9,4 @@
       <% end %>
       </ol>
 <% end %>
+

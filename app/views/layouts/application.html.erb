@@ -17,5 +17,48 @@
 		<% end %>
 
   <%= yield %>
+<footer class="site-footer">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
+            <a href="#">MusicLyricSearch</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  <style>
+    .site-footer
+      {
+        background-color:#26272b;
+        padding:45px 0 20px;
+        font-size:15px;
+        line-height:24px;
+        color:#737373;
+        margin-top:380px;
+      }
+    .copyright-text
+      {
+        margin:0
+      }
+      @media (max-width:991px)
+      {
+    .site-footer [class^=col-]
+      {
+          margin-bottom:5px
+      }
+      }
+    @media (max-width:767px)
+      {
+    .site-footer
+      {
+        padding-bottom:0
+      }
+      .site-footer .copyright-text
+      {
+        text-align:center
+      }
+      }
+</footer>
 </body>
 </html>

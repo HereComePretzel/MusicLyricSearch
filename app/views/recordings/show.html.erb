@@ -1,59 +1,101 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-4">
-        <%= "Image Pic should be here" %>
-        <div class="">
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
-  background-color: lightblue;
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
 }
 
-h1, h3, h4, p {
-  text-align: center;
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 </style>
 </head>
 <body>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+      <h3><%= "Is this what you're looking for?" %></h3>
+        <div class="loader"></div>
+        <div class="star-rating" data-score= <@average_rating %></div>
+        <em><%= "#{@recording.reviews.length} reviews"%></em>
+        <div>
+        <div class="stars">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<h1><%= "Is this what you're looking for?" %></h1>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+        <style>
+          .checked {
+            color: orange;
+          }
+        </style>
+        </div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong> Song Title:</strong></td>
+                <td><%= @recording.song.name %></td>
+              </tr>
+                <td><strong> Artist Name: </strong></td>
+                <td><%= @recording.artist.name %></td>
+              </tr>
+              <tr>
+                <td><strong>Rating:</strong></td>
+                <% if @recording.average_rating > 0 %>
+                  <td><%= @recording.average_rating %></td>
+                <% else %>
+                  <td><%= "Not rated yet" %></td>
+                <% end %>
+              </tr>
+              <tr>
+                <td><strong> Lyrics: </strong></td>
+                <td><%= simple_format(@recording.song.lyric) %></td>
+              </tr>
+                <%= link_to "View full lyrics", @recording.link, target: :_blank %>
+              <% if logged_in? %>
+                <p><%= link_to "Create Review", new_review_path %></p>
+              <% else %>
+                <p><%= link_to "Sign Up to Create Review", new_user_path %></p>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-7 col-md-offset-1">
+        <h3 class="review_title"><%= @recording.song.name %></h3>
+        <p><%= @recording.artist.name %></p>
 
-<h4>Rec Id: <%= @recording.id %></h4>
-<h4>Song Name: <%= @recording.song.name %></h4>
-<p>Artist Name: <%= @recording.artist.name %></p>
-<p>Rating: 
-  <% if @recording.average_rating > 0 %>
-    <%= @recording.average_rating %>
-  <% else %>
-    <%= "Not rated yet" %>
-  <% end %>
-</p>
-
-<p> Lyrics: <%= @recording.song.lyric %></p>
-<p><%= link_to "View full lyrics", @recording.link, target: :_blank %></p>
-
-<h4>
-    <% if logged_in? %>
-      <p><%= link_to "Create Review", new_review_path %></p>
-      <% else %>
-        <p><%= link_to "Sign Up to Create Review", new_user_path %></p>
-    <% end %>
-</h4>
-
-<ul>
-  <p>Reviews: 
-    <% @recording.reviews.each do |review| %>
-      <% if review.user != nil %>
-        <li><%= "#{review.user.username} - #{review.description}" %></li>
-      <% end %>
-    <% end %>
-  </p>
-</ul>
-
-</body>
-</html>
-
+          <h4>Reviews: </h4>
+            <% if @recording.reviews.blank? %>
+              <p> No reviews yet! </p>
+            <% else %>
+              <% @recording.reviews.each do |review| %>
+                <div class="reviews">
+                  <div class="stars" data-score= <%= review.rating %> ></div>
+                <p><%= review.description %></p>
+              <% end %>
+            <% end %>
+          </ul>
+      </div>
+  </div>
+</div>
 
