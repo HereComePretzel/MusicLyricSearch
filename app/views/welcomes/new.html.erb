@@ -10,14 +10,16 @@ h1 {
 }
 
 body {
-  background-color: lightblue;
+  background-color: white;
 }
 
 h4 {
-    text-align: center;
+  text-align: center;
 }
 
-
+h5 {
+  text-align: right;
+}
 
 </style>
 
@@ -27,24 +29,11 @@ h4 {
 
 <h1><%= "What's stuck in your head?" %></h1>
 
-<h4><%= form_tag(songs_path, method: :get) do %>
+<h4><%= form_tag(recording_search_path, method: :get) do %>
 
     <%= text_field_tag :search, params[:search], placeholder: "Enter word/phrase" %>
     <%= submit_tag 'Unstick' %></h4>
 <% end %>
-
-
-<p><%= "The app lets you search any music lyric. Just type your word or phrase" %></p>
-
-
-<!--<h4>
-    <% if logged_in? %>
-        <li> <%= link_to "logout", logout_path, method: :delete %> </li>
-    <% else %>
-        <li><%= link_to "Sign-Up", new_user_path %></li>
-        <li ><%= link_to "Sign-In", new_login_path %></li>
-    <% end %>
-</h4> -->
 
 </body>
 </html>

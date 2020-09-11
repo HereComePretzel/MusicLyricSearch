@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
     def logged_in?
         !!logged_in_user
     end
+
+    def find_logged_in_user
+        @user = User.find_by(id: session[:user_id])
+    end
+    
 end

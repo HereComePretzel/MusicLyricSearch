@@ -16,48 +16,39 @@ h1, h3, h4, p {
 
 <h1><%= "Is this what you're looking for?" %></h1>
 
-
+<h4>Rec Id: <%= @recording.id %></h4>
 <h4>Song Name: <%= @recording.song.name %></h4>
 <p>Artist Name: <%= @recording.artist.name %></p>
 <p>Rating: 
-    <% @recording.reviews.each do |review| %>
-        <%= review.rating %>
-    <% end %>
+  <% if @recording.average_rating > 0 %>
+    <%= @recording.average_rating %>
+  <% else %>
+    <%= "Not rated yet" %>
+  <% end %>
 </p>
-<p>Reviews: 
-    <% @recording.reviews.each do |review| %>
-        <%= review.description %>
-    <% end %>
-</p>
+
 <p> Lyrics: <%= @recording.song.lyric %></p>
-<p><%= link_to "Buy/Stream this song", @recording.link, target: :_blank %></p>
+<p><%= link_to "View full lyrics", @recording.link, target: :_blank %></p>
 
 <h4>
-    <!--<% if logged_in? %>
-     <li><%= link_to "Create Review", new_review_path %></li>
-        <li> <%= link_to "logout", logout_path, method: :delete %> </li>
+    <% if logged_in? %>
+      <p><%= link_to "Create Review", new_review_path %></p>
       <% else %>
-        <li><%= link_to "Sign-Up", new_user_path %></li>
-        <li ><%= link_to "Sign-In", new_login_path %></li>
+        <p><%= link_to "Sign Up to Create Review", new_user_path %></p>
     <% end %>
 </h4>
 
-
-<button style="text-decoration: none"><%= link_to "Go to Search Bar", home_path %></button>-->
+<ul>
+  <p>Reviews: 
+    <% @recording.reviews.each do |review| %>
+      <% if review.user != nil %>
+        <li><%= "#{review.user.username} - #{review.description}" %></li>
+      <% end %>
+    <% end %>
+  </p>
+</ul>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -24,23 +24,11 @@ h3, p {
   </head>
   <body>
 
-<h3> My Reviews: </h3>
-    <ul>
-        <% @user.reviews.each do |review| %>
-        <% song_review = review.recording.song_id %>
-        <li><%= link_to Song.find(song_review).name, recording_path(review.recording_id) %></li>
-        <p><%= review.recording.artist.name %></p>
-        <p><li><%= "#{review.description} | #{review.rating}" %></li></p>
-        <% end %>
-    </ul>
-
-
-
-<!--<p><%= link_to "Sign Out", logout_path, method: :delete %></p>
+   
 
 <h1><%=  @user.first_name %></h1>
 
-<h4>Username: <%= @user.username %></h4>
+<p>Username: <%= @user.username %></p>
 <p>First Name: <%= @user.first_name %></p>
 <p>Last Name: <%= @user.last_name %></p>
 <p>Age: <%= @user.age %></p>
@@ -48,7 +36,7 @@ h3, p {
 
 <%= button_to "Edit Profile", edit_user_path(@user), {method: :get} %><br>
 
-<%= button_to "Delete Profile", user_path(@user), {method: :delete, data: {confirm: "Are you sure you want to delete your profile?"}} %>
+<%= button_to "Delete Profile", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your profile?"} %>
 
 
 </body>

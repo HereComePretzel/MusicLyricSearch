@@ -41,8 +41,8 @@ $id_search_parameter = "&track_id="
             lyrics = response_hash["message"]["body"]["lyrics"]["lyrics_body"]
             self.generate_recording(track, lyrics)
         end
-
     end
+        
 
     def self.generate_recording(track, lyrics)
         artist = Artist.find_or_create_by(name: track["artist_name"])
@@ -53,6 +53,14 @@ $id_search_parameter = "&track_id="
 
     def self.find_recordings_by_lyric_content(search_term)
         self.all.select { |recording| recording.song.lyric.include?(search_term) }
+    end
+
+    def average_rating
+        sum = self.reviews.uniq.sum do |review|
+            review.rating
+        end
+        average = sum.to_f / self.reviews.uniq.count
+        average.round(2)
     end
 
 end #end of r class

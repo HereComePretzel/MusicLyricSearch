@@ -2,8 +2,8 @@ class RecordingsController < ApplicationController
 
     def show
         @recording = Recording.find(params[:id])
+        session[:rec_id] = @recording.id
     end
-
 
     def search
         @searched_recordings = []
@@ -16,8 +16,4 @@ class RecordingsController < ApplicationController
     end
 
 
-
-end
-
-
-
+end #end of rc class

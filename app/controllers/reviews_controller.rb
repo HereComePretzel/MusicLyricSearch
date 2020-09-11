@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+
     def index
         @reviews = Review.all 
     end
@@ -10,13 +11,21 @@ class ReviewsController < ApplicationController
 
     def new
         @review = Review.new 
+        @rec_id = session[:rec_id]
     end
 
     def create
         @user = User.find_by(id: session[:user_id])
-        @user.my_reviews << Review.create(review_params)
+
+        @rec_id = session[:rec_id]
+
+        @new_review = Review.create(review_params)
+        params[:recording_id] = @rec_id
+
+        @user.my_reviews << @new_review
         
-        redirect_to home_path
+
+        redirect_to recording_path(@new_review.recording)
     end
 
     def destroy
