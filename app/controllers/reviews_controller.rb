@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
     def new
         @review = Review.new 
         @rec_id = session[:rec_id]
+        @review_recording = Recording.find(@rec_id)
     end
 
     def create

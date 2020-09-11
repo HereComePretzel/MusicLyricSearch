@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-.loader {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 120px;
-  height: 120px;
+.vinyl {
+  
+  
+  
+  width: 50%;
+  height: 50%;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 }
@@ -31,7 +32,7 @@
     <div class="row">
       <div class="col-md-4">
       <h3><%= "Is this what you're looking for?" %></h3>
-        <div class="loader"></div>
+        <div class="vinyl"><img src="https://pngriver.com/wp-content/uploads/2018/04/Download-Vinyl-PNG-Image-1.png" alt="vinyl" width=100% height=100% ></div>
         <div class="star-rating" data-score= <@average_rating %></div>
         <em><%= "#{@recording.reviews.length} reviews"%></em>
         <div>
